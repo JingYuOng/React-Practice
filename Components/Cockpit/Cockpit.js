@@ -34,6 +34,6 @@ const cockpit = (props) => {
         </Aux1>
     );
 
-}
+};
 
     export default cockpit;

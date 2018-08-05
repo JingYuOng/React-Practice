@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import classes from'./Person.css';
-import withClass from '../../../hoc/withClass';
+import withClass from '../../../hoc/WithClass';
 import Aux1 from '../../../hoc/Aux1';
 import PropTypes from 'prop-types';
  //import Radium from 'radium'
@@ -14,9 +14,8 @@ class Person extends Component {
 	// 		width : '450px' 
 	// 	}
 	// };
-
 	constructor (props){
-    super(props)
+    super(props);
     console.log('[Person.js] Inside Construtor',props);
     this.inputElement = React.createRef();
   }
@@ -34,7 +33,7 @@ class Person extends Component {
   focus(){
   	this.inputElement.current.focus();
   }
-
+    // ref = inputElement : to store references 
 	render(){
 		console.log('[Person.js] Inside render()');
 		return (
@@ -43,12 +42,13 @@ class Person extends Component {
 			<p onClick={this.props.click}> I am {this.props.name} and I am {this.props.age} years old </p> 
 			<p>{this.props.children}</p>
 			<input
-				ref = {this.props.inputElement } 
+				ref = {this.inputElement } 
 				type='text' 
 				onChange={this.props.changed} 
 				value={this.props.name}/>
 			</Aux1>
 		)
+	
 
  	}
 }

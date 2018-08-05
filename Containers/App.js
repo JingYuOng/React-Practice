@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import Persons from '../Components/Persons/Persons';
 import classes from './App.css';
 import Cockpit from '../Components/Cockpit/Cockpit';
-import withClass from '../hoc/withClass';
+import withClass from '../hoc/WithClass';
 import Aux1 from '../hoc/Aux1';
 // import Radium, {StyleRoot} from 'radium';
 // this.setState({showPerson: !doesShow}); shows that doesShow is false then showPerson is true;
@@ -114,14 +114,11 @@ class App extends PureComponent {
     console.log('[App.js] Inside render()');
 
     if (this.state.showPerson) {
-          persons = (
-            <div>
-               <Persons 
+          persons = 
+              <Persons 
                persons = {this.state.persons}
                click={this.deletePersonHandler}
-               changed = {this.nameChangegHandler}/>
-            </div>
-          ); 
+               changed = {this.nameChangegHandler}/>; 
     }
         
 
@@ -136,6 +133,7 @@ class App extends PureComponent {
           {persons}
       </Aux1>  
    );
+   // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 
 }
